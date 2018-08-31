@@ -12,8 +12,9 @@ class Page {
 	var pageId: Int?
 	var title: String?
 	var imageUrl: String?
+	var descriptionText: String?
 
-	func initWithDict(dict: [AnyHashable:Any]) {
+	init(dict: [AnyHashable:Any]) {
 		if let pageId = dict["pageId"] as? Int {
 			self.pageId = pageId
 		}
@@ -22,6 +23,10 @@ class Page {
 		}
 		if let imageData = dict["thumbnail"] as? [String:Any], let imageUrl = imageData["source"] as? String {
 			self.imageUrl = imageUrl
+		}
+		if let terms = dict["terms"] as? [String:Any],
+			let descriptionArray = terms["description"] as? [String], !descriptionArray.isEmpty {
+			self.descriptionText = descriptionArray.first
 		}
 	}
 }

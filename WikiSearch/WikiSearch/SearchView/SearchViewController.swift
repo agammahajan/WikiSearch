@@ -18,7 +18,14 @@ class SearchViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		setupData()
+	}
+
+	func setupData() {
 		viewModel = SearchViewModel.initViewModel()
+		viewModel.delegate = self
+		tableView.delegate = self
+		tableView.dataSource = self
 	}
 
 }
@@ -27,5 +34,35 @@ extension SearchViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		guard let searchText = searchBar.text else {return}
 		viewModel.search(text: searchText)
+		self.view.endEditing(true)
+	}
+}
+
+extension SearchViewController: SearchViewModelDelegate {
+	func dataFetched() {
+		// reload tableView
+		tableView.reloadData()
+	}
+}
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return viewModel.dataSource.count
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell: SearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+		cell.populateData(data: viewModel.dataSource[indexPath.row])
+		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.tableView.deselectRow(at: indexPath, animated: true)
+//		clickOnArticleLink(articleViewModel.articleDataSource[indexPath.row].articleLink)
 	}
 }
