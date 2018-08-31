@@ -47,14 +47,20 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIo-h1-ftv" userLabel="Title">
-                                                    <rect key="frame" x="78" y="16" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="78" y="16" width="46" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="tKb-uF-pAH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-ET-1od" userLabel="Description">
-                                                    <rect key="frame" x="78" y="53" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="78" y="45" width="35.5" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="8qM-Ix-KQ1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -64,9 +70,9 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UIo-h1-ftv" secondAttribute="trailing" constant="16" id="8OJ-eQ-4wA"/>
                                                 <constraint firstItem="Q8s-gZ-O1Z" firstAttribute="leading" secondItem="5MV-ng-5gG" secondAttribute="leading" constant="16" id="A8b-9V-GkT"/>
                                                 <constraint firstItem="UIo-h1-ftv" firstAttribute="top" secondItem="5MV-ng-5gG" secondAttribute="top" constant="16" id="FFc-aB-41k"/>
-                                                <constraint firstItem="Wc3-ET-1od" firstAttribute="top" secondItem="UIo-h1-ftv" secondAttribute="bottom" constant="16" id="IJc-TF-KRE"/>
+                                                <constraint firstItem="Wc3-ET-1od" firstAttribute="top" secondItem="UIo-h1-ftv" secondAttribute="bottom" constant="8" id="IJc-TF-KRE"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wc3-ET-1od" secondAttribute="trailing" constant="16" id="RYc-fu-xVd"/>
-                                                <constraint firstAttribute="bottom" secondItem="Wc3-ET-1od" secondAttribute="bottom" constant="8.5" id="Tml-44-QR5"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q8s-gZ-O1Z" secondAttribute="bottom" constant="16" id="bGt-0p-vnb"/>
                                                 <constraint firstItem="Wc3-ET-1od" firstAttribute="leading" secondItem="UIo-h1-ftv" secondAttribute="leading" id="pTu-Da-0JJ"/>
                                                 <constraint firstItem="UIo-h1-ftv" firstAttribute="leading" secondItem="Q8s-gZ-O1Z" secondAttribute="trailing" constant="12" id="w3f-0G-7pq"/>
                                             </constraints>
