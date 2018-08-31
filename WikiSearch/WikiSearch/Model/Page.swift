@@ -15,7 +15,7 @@ class Page {
 	var descriptionText: String?
 
 	init(dict: [AnyHashable:Any]) {
-		if let pageId = dict["pageId"] as? Int {
+		if let pageId = dict["pageid"] as? Int {
 			self.pageId = pageId
 		}
 		if let title = dict["title"] as? String {

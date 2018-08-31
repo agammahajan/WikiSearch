@@ -18,6 +18,7 @@
 		FA6B3DAF2139C5B600FE9960 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DAE2139C5B600FE9960 /* SearchTableViewCell.swift */; };
 		FA6B3DB12139D2AA00FE9960 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB02139D2AA00FE9960 /* Page.swift */; };
 		FA6B3DB42139E0B100FE9960 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB32139E0B100FE9960 /* ImageCache.swift */; };
+		FA6B3DB72139E94100FE9960 /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FA6B3DAE2139C5B600FE9960 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		FA6B3DB02139D2AA00FE9960 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		FA6B3DB32139E0B100FE9960 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		FA6B3D902139BF7E00FE9960 /* WikiSearch */ = {
 			isa = PBXGroup;
 			children = (
+				FA6B3DB52139E92A00FE9960 /* DetailView */,
 				FA6B3DB22139D47300FE9960 /* Model */,
 				FA6B3DAB2139C25400FE9960 /* Utils */,
 				FA6B3DA62139C1D300FE9960 /* SearchView */,
@@ -104,6 +107,14 @@
 				FA6B3DB02139D2AA00FE9960 /* Page.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA6B3DB52139E92A00FE9960 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 				FA6B3DAD2139C26300FE9960 /* NetworkManager.swift in Sources */,
 				FA6B3DAA2139C22600FE9960 /* SearchViewModel.swift in Sources */,
 				FA6B3DB42139E0B100FE9960 /* ImageCache.swift in Sources */,
+				FA6B3DB72139E94100FE9960 /* DetailWebViewController.swift in Sources */,
 				FA6B3D9A2139BF7E00FE9960 /* WikiSearch.xcdatamodeld in Sources */,
 				FA6B3DAF2139C5B600FE9960 /* SearchTableViewCell.swift in Sources */,
 				FA6B3DB12139D2AA00FE9960 /* Page.swift in Sources */,

@@ -63,6 +63,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		self.tableView.deselectRow(at: indexPath, animated: true)
-//		clickOnArticleLink(articleViewModel.articleDataSource[indexPath.row].articleLink)
+		guard let detailVC = DetailWebViewController.initController(withPageId: self.viewModel.dataSource[indexPath.row].pageId) else {return}
+		self.navigationController?.pushViewController(detailVC, animated: true)
 	}
 }
