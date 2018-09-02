@@ -14,6 +14,7 @@ protocol HistoryViewModelDelegate: class {
 	func insertRows(index: IndexPath)
 	func beginUpdates()
 	func endUpdates()
+	func dataDeleted()
 }
 
 class HistoryViewModel: NSObject {
@@ -41,7 +42,7 @@ class HistoryViewModel: NSObject {
 		return frc
 	}()
 
-	private func clearData() {
+	func clearData() {
 		do {
 			let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
 			let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PageHistory")
@@ -49,6 +50,7 @@ class HistoryViewModel: NSObject {
 				let objects  = try context.fetch(fetchRequest) as? [NSManagedObject]
 				_ = objects.map{$0.map{context.delete($0)}}
 				CoreDataStack.sharedInstance.saveContext()
+				delegate.dataDeleted()
 			} catch let error {
 				print("ERROR DELETING : \(error)")
 			}
@@ -62,10 +64,8 @@ extension HistoryViewModel: NSFetchedResultsControllerDelegate {
 		switch type {
 		case .insert:
 			delegate.insertRows(index: newIndexPath!)
-
 		case .delete:
-			delegate.insertRows(index: indexPath!)
-
+			delegate.deleteRows(index: indexPath!)
 		default:
 			break
 		}

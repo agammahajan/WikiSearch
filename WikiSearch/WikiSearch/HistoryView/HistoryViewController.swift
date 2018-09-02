@@ -22,6 +22,12 @@ class HistoryViewController: UITableViewController {
 	func setupData() {
 		viewModel = HistoryViewModel.initViewModel()
 		viewModel.delegate = self
+		let historyButton: UIBarButtonItem = UIBarButtonItem(title: "Clear History", style: .plain, target: self, action: #selector(clearHistoryTapped(sender:)))
+		navigationItem.rightBarButtonItem = historyButton
+	}
+
+	@objc func clearHistoryTapped(sender: AnyObject) {
+		viewModel.clearData()
 	}
 
 	override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,5 +72,12 @@ extension HistoryViewController: HistoryViewModelDelegate {
 	}
 	func endUpdates() {
 		self.tableView.endUpdates()
+	}
+	func dataDeleted() {
+		tableView.reloadData()
+		let alert:UIAlertController = UIAlertController(title: "Deleted", message: "History is deleted", preferredStyle: .alert)
+		let okayAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+		alert.addAction(okayAlertAction)
+		self.present(alert, animated: true, completion: nil)
 	}
 }
