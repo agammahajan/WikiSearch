@@ -11,7 +11,7 @@ import UIKit
 import WebKit
 
 class DetailWebViewController: UIViewController {
-	@IBOutlet weak var webView: WKWebView!
+	@IBOutlet weak var webView: UIWebView!
 
 	var pageId : Int!
 
@@ -29,7 +29,7 @@ class DetailWebViewController: UIViewController {
 	}
 
 	func setupData() {
-		self.webView.navigationDelegate = self
+		webView.delegate = self
 		self.openLink()
 	}
 
@@ -38,18 +38,19 @@ class DetailWebViewController: UIViewController {
 		let url = URL(string: urlString)
 		guard let requestURL = url else {return}
 		var request = URLRequest(url: requestURL)
-		request.cachePolicy = .useProtocolCachePolicy
-		webView.load(request)
+		request.cachePolicy = .returnCacheDataElseLoad
+		webView.loadRequest(request)
 	}
 
 }
 
-extension DetailWebViewController: WKNavigationDelegate {
+extension DetailWebViewController: UIWebViewDelegate {
 
-	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		print("start")
+	func webViewDidStartLoad(_ webView: UIWebView) {
+		print("start1")
 	}
-	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-		print("end")
+
+	func webViewDidFinishLoad(_ webView: UIWebView) {
+		print("end1")
 	}
 }
