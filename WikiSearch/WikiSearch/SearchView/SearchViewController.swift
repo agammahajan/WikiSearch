@@ -32,9 +32,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		self.view.endEditing(true)
+	}
+
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		guard let searchText = searchBar.text else {return}
 		viewModel.search(text: searchText)
-		self.view.endEditing(true)
 	}
 }
 

@@ -23,7 +23,7 @@ class SearchViewModel {
 	}
 
 	func search(text: String) {
-		let url = "https://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpslimit=10&gpssearch=" + text
+		let url = "https://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpslimit=10&gpssearch=" + text.replacingOccurrences(of: " ", with: "+")
 		let manager: NetworkManager = NetworkManager()
 		manager.get(urlString: url, params: nil, headers: nil, body: nil, success: { [weak self] (response, responsData) in
 			guard let data = responsData,let query = data["query"] as? [AnyHashable: Any], let pages = query["pages"] as? [[AnyHashable: Any]] else {return}
