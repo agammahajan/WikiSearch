@@ -12,6 +12,7 @@ import WebKit
 
 class DetailWebViewController: UIViewController {
 	@IBOutlet weak var webView: UIWebView!
+	@IBOutlet weak var loader: UIActivityIndicatorView!
 
 	var pageId : Int!
 
@@ -47,10 +48,10 @@ class DetailWebViewController: UIViewController {
 extension DetailWebViewController: UIWebViewDelegate {
 
 	func webViewDidStartLoad(_ webView: UIWebView) {
-		print("start1")
+		loader.startAnimating()
 	}
 
 	func webViewDidFinishLoad(_ webView: UIWebView) {
-		print("end1")
+		loader.stopAnimating()
 	}
 }

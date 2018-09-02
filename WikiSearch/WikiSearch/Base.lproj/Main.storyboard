@@ -131,24 +131,31 @@
             <objects>
                 <viewController storyboardIdentifier="DetailWebViewController" title="Detail Page" id="nHm-ql-fjY" customClass="DetailWebViewController" customModule="WikiSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7al-Ji-NLo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lV-Qe-9Ij">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LTg-s5-aE0">
+                                <rect key="frame" x="177" y="291.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LTg-s5-aE0" firstAttribute="centerX" secondItem="0lV-Qe-9Ij" secondAttribute="centerX" id="Ckh-fU-vqv"/>
                             <constraint firstItem="sRR-UQ-BgG" firstAttribute="trailing" secondItem="0lV-Qe-9Ij" secondAttribute="trailing" id="GiF-bS-Msp"/>
                             <constraint firstItem="0lV-Qe-9Ij" firstAttribute="leading" secondItem="sRR-UQ-BgG" secondAttribute="leading" id="jpC-xU-eYi"/>
                             <constraint firstItem="0lV-Qe-9Ij" firstAttribute="top" secondItem="sRR-UQ-BgG" secondAttribute="top" id="tcF-Db-fa4"/>
                             <constraint firstItem="sRR-UQ-BgG" firstAttribute="bottom" secondItem="0lV-Qe-9Ij" secondAttribute="bottom" id="vYj-jx-4Yp"/>
+                            <constraint firstItem="LTg-s5-aE0" firstAttribute="centerY" secondItem="0lV-Qe-9Ij" secondAttribute="centerY" id="zrO-oJ-unL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sRR-UQ-BgG"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="loader" destination="LTg-s5-aE0" id="Ofz-Qg-J36"/>
                         <outlet property="webView" destination="0lV-Qe-9Ij" id="sb3-Uv-9hW"/>
                     </connections>
                 </viewController>
@@ -156,12 +163,12 @@
             </objects>
             <point key="canvasLocation" x="856.79999999999995" y="31.934032983508249"/>
         </scene>
-        <!--History View Controller-->
+        <!--History-->
         <scene sceneID="iaA-dX-940">
             <objects>
-                <tableViewController storyboardIdentifier="HistoryViewController" id="Zvh-Mm-hfX" customClass="HistoryViewController" customModule="WikiSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HistoryViewController" title="History" id="Zvh-Mm-hfX" customClass="HistoryViewController" customModule="WikiSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5te-hP-1uo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -196,6 +203,7 @@
                             <outlet property="delegate" destination="Zvh-Mm-hfX" id="gD4-Ak-Kda"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF6-yh-sS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
