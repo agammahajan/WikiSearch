@@ -8,3 +8,8 @@ Functionality:
 4. Caching web views.
 5. Saving History of searched wiki pages using Core Data.
 
+![alt text]https://ibb.co/n4jCSz
+![alt text]https://ibb.co/g7BgLK
+![alt text]https://ibb.co/m7QafK
+![alt text]https://ibb.co/dOuCSz
+![alt text]https://ibb.co/kzjCSz
