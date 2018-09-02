@@ -19,6 +19,10 @@
 		FA6B3DB12139D2AA00FE9960 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB02139D2AA00FE9960 /* Page.swift */; };
 		FA6B3DB42139E0B100FE9960 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB32139E0B100FE9960 /* ImageCache.swift */; };
 		FA6B3DB72139E94100FE9960 /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */; };
+		FAB06EFB213C378000EB2CD3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB06EFA213C378000EB2CD3 /* HistoryViewController.swift */; };
+		FAB06EFD213C389100EB2CD3 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB06EFC213C389100EB2CD3 /* HistoryViewModel.swift */; };
+		FAB06EFF213C390B00EB2CD3 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB06EFE213C390B00EB2CD3 /* HistoryTableViewCell.swift */; };
+		FAB06F01213C3AC700EB2CD3 /* SearchedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB06F00213C3AC700EB2CD3 /* SearchedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		FA6B3DB02139D2AA00FE9960 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		FA6B3DB32139E0B100FE9960 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
+		FAB06EFA213C378000EB2CD3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		FAB06EFC213C389100EB2CD3 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		FAB06EFE213C390B00EB2CD3 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		FAB06F00213C3AC700EB2CD3 /* SearchedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 		FA6B3D902139BF7E00FE9960 /* WikiSearch */ = {
 			isa = PBXGroup;
 			children = (
+				FAB06EF9213C376D00EB2CD3 /* HistoryView */,
 				FA6B3DB52139E92A00FE9960 /* DetailView */,
 				FA6B3DB22139D47300FE9960 /* Model */,
 				FA6B3DAB2139C25400FE9960 /* Utils */,
@@ -78,6 +87,7 @@
 				FA6B3D9D2139BF7F00FE9960 /* LaunchScreen.storyboard */,
 				FA6B3DA02139BF7F00FE9960 /* Info.plist */,
 				FA6B3D982139BF7E00FE9960 /* WikiSearch.xcdatamodeld */,
+				FAB06F00213C3AC700EB2CD3 /* SearchedData.swift */,
 			);
 			path = WikiSearch;
 			sourceTree = "<group>";
@@ -115,6 +125,16 @@
 				FA6B3DB62139E94100FE9960 /* DetailWebViewController.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		FAB06EF9213C376D00EB2CD3 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				FAB06EFA213C378000EB2CD3 /* HistoryViewController.swift */,
+				FAB06EFC213C389100EB2CD3 /* HistoryViewModel.swift */,
+				FAB06EFE213C390B00EB2CD3 /* HistoryTableViewCell.swift */,
+			);
+			path = HistoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,12 +210,16 @@
 			files = (
 				FA6B3DAD2139C26300FE9960 /* NetworkManager.swift in Sources */,
 				FA6B3DAA2139C22600FE9960 /* SearchViewModel.swift in Sources */,
+				FAB06EFD213C389100EB2CD3 /* HistoryViewModel.swift in Sources */,
 				FA6B3DB42139E0B100FE9960 /* ImageCache.swift in Sources */,
+				FAB06EFB213C378000EB2CD3 /* HistoryViewController.swift in Sources */,
 				FA6B3DB72139E94100FE9960 /* DetailWebViewController.swift in Sources */,
+				FAB06EFF213C390B00EB2CD3 /* HistoryTableViewCell.swift in Sources */,
 				FA6B3D9A2139BF7E00FE9960 /* WikiSearch.xcdatamodeld in Sources */,
 				FA6B3DAF2139C5B600FE9960 /* SearchTableViewCell.swift in Sources */,
 				FA6B3DB12139D2AA00FE9960 /* Page.swift in Sources */,
 				FA6B3DA82139C1F100FE9960 /* SearchViewController.swift in Sources */,
+				FAB06F01213C3AC700EB2CD3 /* SearchedData.swift in Sources */,
 				FA6B3D922139BF7E00FE9960 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

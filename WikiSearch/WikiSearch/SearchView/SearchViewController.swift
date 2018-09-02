@@ -26,8 +26,15 @@ class SearchViewController: UIViewController {
 		viewModel.delegate = self
 		tableView.delegate = self
 		tableView.dataSource = self
+		let historyButton: UIBarButtonItem = UIBarButtonItem(title: "History", style: .plain, target: self, action: #selector(historyButtonTapped(sender:)))
+		navigationItem.rightBarButtonItem = historyButton
 	}
 
+	@objc func historyButtonTapped(sender: AnyObject) {
+		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+		let historyVC = storyBoard.instantiateViewController(withIdentifier: "HistoryViewController")  as! HistoryViewController
+		self.navigationController?.pushViewController(historyVC, animated: true)
+	}
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -66,7 +73,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		self.tableView.deselectRow(at: indexPath, animated: true)
-		guard let detailVC = DetailWebViewController.initController(withPageId: self.viewModel.dataSource[indexPath.row].pageId) else {return}
+		let page = self.viewModel.dataSource[indexPath.row]
+		SearchedData.sharedInstance.saveData(newPage: page)
+		guard let detailVC = DetailWebViewController.initController(withPageId: page.pageId) else {return}
 		self.navigationController?.pushViewController(detailVC, animated: true)
 	}
 }
