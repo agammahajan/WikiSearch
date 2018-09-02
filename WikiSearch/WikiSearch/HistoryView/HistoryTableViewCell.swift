@@ -13,7 +13,7 @@ class HistoryTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var title: UILabel!
 
-	func populateData(data: Page) {
+	func populateData(data: PageHistory) {
 		self.title.text = data.title
 	}
 

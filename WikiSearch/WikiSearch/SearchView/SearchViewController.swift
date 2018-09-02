@@ -39,6 +39,8 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		guard let searchText = searchBar.text else {return}
+		viewModel.search(text: searchText)
 		self.view.endEditing(true)
 	}
 
@@ -74,7 +76,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		self.tableView.deselectRow(at: indexPath, animated: true)
 		let page = self.viewModel.dataSource[indexPath.row]
-		SearchedData.sharedInstance.saveData(newPage: page)
+		SearchedData.sharedInstance.saveInCoreDataWith(page: page)
 		guard let detailVC = DetailWebViewController.initController(withPageId: page.pageId) else {return}
 		self.navigationController?.pushViewController(detailVC, animated: true)
 	}

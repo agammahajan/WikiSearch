@@ -21,6 +21,7 @@ class HistoryViewController: UITableViewController {
 
 	func setupData() {
 		viewModel = HistoryViewModel.initViewModel()
+		viewModel.delegate = self
 	}
 
 	override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,18 +29,42 @@ class HistoryViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return viewModel.dataSource.count
+		if let count = viewModel.fetchedhResultController.sections?.first?.numberOfObjects {
+			return count
+		}
+		return 0
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-		cell.populateData(data: viewModel.dataSource[indexPath.row])
+		if let page = viewModel.fetchedhResultController.object(at: indexPath) as? PageHistory {
+			cell.populateData(data: page)
+		}
 		return cell
 	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		self.tableView.deselectRow(at: indexPath, animated: true)
-		guard let detailVC = DetailWebViewController.initController(withPageId: self.viewModel.dataSource[indexPath.row].pageId) else {return}
-		self.navigationController?.pushViewController(detailVC, animated: true)
+		if let page = viewModel.fetchedhResultController.object(at: indexPath) as? PageHistory,
+			let pageId = Int(exactly: page.pageId) {
+			guard let detailVC = DetailWebViewController.initController(withPageId: pageId) else {return}
+			self.navigationController?.pushViewController(detailVC, animated: true)
+		}
+	}
+}
+
+extension HistoryViewController: HistoryViewModelDelegate {
+
+	func deleteRows(index: IndexPath) {
+		self.tableView.deleteRows(at: [index], with: .automatic)
+	}
+	func insertRows(index: IndexPath) {
+		self.tableView.insertRows(at: [index], with: .automatic)
+	}
+	func beginUpdates() {
+		self.tableView.beginUpdates()
+	}
+	func endUpdates() {
+		self.tableView.endUpdates()
 	}
 }
