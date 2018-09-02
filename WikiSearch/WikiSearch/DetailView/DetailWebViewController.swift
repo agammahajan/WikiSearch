@@ -31,14 +31,14 @@ class DetailWebViewController: UIViewController {
 	func setupData() {
 		self.webView.navigationDelegate = self
 		self.openLink()
-
 	}
 
 	func openLink() {
 		let urlString = String(format: "https://en.m.wikipedia.org/?curid=%d", self.pageId)
 		let url = URL(string: urlString)
 		guard let requestURL = url else {return}
-		let request = URLRequest(url: requestURL)
+		var request = URLRequest(url: requestURL)
+		request.cachePolicy = .useProtocolCachePolicy
 		webView.load(request)
 	}
 
